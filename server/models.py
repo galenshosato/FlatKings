@@ -16,13 +16,14 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String)
     password = db.Column(db.String)
-    user_bets = db.relationship('UserBet', backref='user')
+    bets = db.relationship('Bet', backref='user')
 
     def to_dict(self):
         return {
             "id": self.id,
             "email": self.email,
-            "password": self.password
+            "password": self.password,
+            "bets": [bet.to_dict() for bet in self.bets]
         }
     
 class Bet(db.Model):
@@ -34,22 +35,14 @@ class Bet(db.Model):
     odds = db.Column(db.Integer)
     wager = db.Column(db.Integer)
     success = db.Column(db.Boolean)
-    user_bets = db.relationship('UserBet', backref='bet')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def to_dict(self):
         return {
             "id": self.id,
-            "team name": self.team_name,
+            "team_name": self.team_name,
             "description": self.desc,
             "odds": self.odds,
             "wager": self.wager,
             "W/L": self.success,
         }
-
-class UserBet(db.Model):
-    __tablename__ = 'user_bets'
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    bet_id = db.Column(db.Integer, db.ForeignKey('bets.id'))
-
