@@ -32,7 +32,7 @@ def user_info():
         return make_response(jsonify(userInfo.to_dict()), 201)
     
 @app.route('/bets', methods=['POST'])
-def user_info():
+def bets_info():
 
     if request.method == 'POST':
         data = request.get_json()
@@ -49,7 +49,6 @@ def user_info():
         db.session.commit()
 
         return make_response(jsonify(bet.to_dict()), 201)
-
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
