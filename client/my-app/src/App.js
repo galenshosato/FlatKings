@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react'
+import BetsList from './components/BetsList';
+import Header from './components/Header';
 
 function App() {
+  const [bets, setBets] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/games")
+        .then((response) => response.json())
+        .then(setBets)
+    }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Header />
+      <BetsList
+      bets={bets}
+      setBets={setBets} />
     </div>
-  );
+  )
 }
 
 export default App;
