@@ -57,6 +57,23 @@ def bet_by_id(id):
 
     if request.method == 'GET':
         return make_response(jsonify(bet.to_dict()), 200)
+    
+    elif request.method == 'DELETE':
+        db.session.delete(bet)
+        db.session.commit()
+
+        return make_response(jsonify({"delete": "You have successfully deleted this bet"}))
+    
+    elif request.method == 'PATCH':
+        data = request.get_json()
+
+        for field in data:
+            setattr(bet, field, data[field])
+        
+        db.session.add(bet)
+        db.session.commit()
+
+        return(jsonify(bet.to_dict()), 200)
 
 
     
