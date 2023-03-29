@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
 import Header from './components/Header';
+import UserBetList from './components/UserBetList';
+
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -22,8 +24,10 @@ function App() {
                 <BetsList
                 bets={bets}
                 setBets={setBets}/>} path="/" />
+      <UserBetList />
       </Routes>
     </div>
+
   )
 }
 
