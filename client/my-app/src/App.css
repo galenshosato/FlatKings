@@ -1,15 +1,19 @@
 .app {
   background-color: black;
 }
-  
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+    margin-top: -7rem;
+    margin-left: 5rem;
+  }
+
   .mb-2 {
     width: auto;
     cursor: pointer;
-  }
-
-  .cards {
-    column-count: 2;
-    width: 100rem;
+    margin: 1rem;
   }
 
   .mb-3, .form-control {
@@ -35,7 +39,7 @@
     place-content: center;
     text-transform: uppercase;
     height: 35vh;
-    margin: 5rem;
+    margin: 2rem;
   }
 
   .wrapper > div {

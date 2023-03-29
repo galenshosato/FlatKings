@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
 import Header from './components/Header';
@@ -24,7 +24,7 @@ function App() {
                 <BetsList
                 bets={bets}
                 setBets={setBets}/>} path="/" />
-      <UserBetList />
+      <Route element={<UserBetList />} path="/user" />
       </Routes>
     </div>
 
