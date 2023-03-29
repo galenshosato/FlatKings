@@ -21,15 +21,15 @@ if __name__ == '__main__':
         print("Seeding bets...")
 
         bets = [
-            Bet(team_name="New York Knicks", desc="h2h", odds=-110, wager=500, user_id = 1),
-            Bet(team_name="Sacramento Kings", desc="h2h", odds=300, wager=250, user_id = 2),
-            Bet(team_name="Miluakee Bucks", desc="spread", odds=-110, wager=5, user_id = 3),
-            Bet(team_name="Charlotte Bobcats", desc="h2h", odds=-110, wager=20, user_id = 4),
-            Bet(team_name="Miami Heat", desc="spread", odds=200, wager=50, user_id = 1),
-            Bet(team_name="New Orleans Pelicans", desc="h2h", odds=-1110, wager=590, user_id = 2),
-            Bet(team_name="Boston Celtics", desc="spread", odds=-210, wager=670, user_id = 3),
-            Bet(team_name="Pheonix Suns", desc="h2h", odds=500, wager=5000, user_id = 4),
-            Bet(team_name="Utah Jazz", desc="spread", odds=-210, wager=400, user_id = 1)
+            Bet(team_name="New York Knicks", desc="h2h", odds=-110, wager=500, result=954, user_id = 1),
+            Bet(team_name="Sacramento Kings", desc="h2h", odds=300, wager=250, result=1000, user_id = 2),
+            Bet(team_name="Miluakee Bucks", desc="spread", odds=-110, wager=5, result=10, user_id = 3),
+            Bet(team_name="Charlotte Bobcats", desc="h2h", odds=-110, wager=20, result=540, user_id = 4),
+            Bet(team_name="Miami Heat", desc="spread", odds=200, wager=50, result=150, user_id = 1),
+            Bet(team_name="New Orleans Pelicans", desc="h2h", odds=-1110, wager=590, result=10, user_id = 2),
+            Bet(team_name="Boston Celtics", desc="spread", odds=-210, wager=670, result=200, user_id = 3),
+            Bet(team_name="Pheonix Suns", desc="h2h", odds=500, wager=5000, result=10000, user_id = 4),
+            Bet(team_name="Utah Jazz", desc="spread", odds=-210, wager=400, result=120, user_id = 1)
         ]
 
         db.session.add_all(bets)
