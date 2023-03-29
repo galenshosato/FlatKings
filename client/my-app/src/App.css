@@ -19,9 +19,3 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   }
 
-
-  .userBetList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
