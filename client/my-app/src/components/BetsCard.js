@@ -14,12 +14,17 @@ function BetsCard({home_team, away_team, bookmakers, markets, outcomes}) {
             style={{ width: '30rem' }}
             className="mb-2"
           >
-            <Card.Header>Upcoming Game: 3/28/2023</Card.Header>
+            <Card.Header style={{'text-align': 'center'}}>Upcoming Game: 3/28/2023</Card.Header>
             <Card.Body>
               <Card.Title style={{'text-align': 'center'}}>{home_team} vs {away_team}</Card.Title>
+              <br></br>
+              <Card.Subtitle style={{'text-align': 'center'}}>Money Line</Card.Subtitle>
               <Card.Text>
-                <p style={{'text-align': 'center'}}>H2H Home: {bookmakers[0].markets[0].outcomes[1].price} | H2H Away: {bookmakers[0].markets[0].outcomes[0].price}</p>
-                <p style={{'text-align': 'center'}}>Spread Home: {bookmakers[0].markets[1].outcomes[1].point} | Spread Away: {bookmakers[0].markets[1].outcomes[0].point}</p>
+                <p style={{'text-align': 'center'}}>Home: {bookmakers[0].markets[0].outcomes[1].price} | Away: {bookmakers[0].markets[0].outcomes[0].price}</p>
+              </Card.Text>
+              <Card.Subtitle style={{'text-align': 'center'}}>Spread</Card.Subtitle>
+              <Card.Text>
+                <p style={{'text-align': 'center'}}> Home: {bookmakers[0].markets[1].outcomes[1].point} | Away: {bookmakers[0].markets[1].outcomes[0].point}</p>
               </Card.Text>
             </Card.Body>
             <center>
