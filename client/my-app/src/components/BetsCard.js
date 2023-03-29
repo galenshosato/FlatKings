@@ -2,9 +2,13 @@ import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-function BetsCard({home_team, away_team, bookmakers}) {
-    const moneyline = bookmakers[0].markets[0]
-    const spread = bookmakers[0].markets[1]
+function BetsCard({home_team, away_team, moneyline, spread}) {
+    const moneyAway = moneyline.outcomes[0].name === away_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
+    const moneyHome = moneyline.outcomes[0].name === home_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
+    const spreadAway = spread.outcomes[0].name === away_team ? spread.outcomes[0].price : spread.outcomes[1].price
+    const spreadHome = spread.outcomes[0].name === home_team ? spread.outcomes[0].price : spread.outcomes[1].price
+    const awayPoints = spread.outcomes[0].name === away_team ? spread.outcomes[0].point : spread.outcomes[1].point
+    const homePoints = spread.outcomes[0].name === home_team ? spread.outcomes[0].point : spread.outcomes[1].point
 
 
     return (
@@ -24,13 +28,13 @@ function BetsCard({home_team, away_team, bookmakers}) {
               <br></br>
               <Card.Subtitle style={{'text-align': 'center'}}>Money Line</Card.Subtitle>
               <Card.Text>
-                <p style={{'text-align': 'center'}}>Away: {moneyline.outcomes[0].name === away_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price} | 
-                                                    Home: {moneyline.outcomes[0].name === home_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price} </p>
+                <p style={{'text-align': 'center'}}>Away: {moneyAway} | 
+                                                    Home: {moneyHome} </p>
               </Card.Text>
               <Card.Subtitle style={{'text-align': 'center'}}>Spread</Card.Subtitle>
               <Card.Text>
-                <p style={{'text-align': 'center'}}> Away: {spread.outcomes[0].point > 0 && spread.outcomes[0].name === away_team && spread.outcomes[1].name === home_team ? '+' : null}{spread.outcomes[0].name === away_team ? spread.outcomes[0].point : spread.outcomes[1].point} ({spread.outcomes[0].name === away_team ? spread.outcomes[0].price : spread.outcomes[1].price }) | 
-                                                     Home: {spread.outcomes[0].point > 0 && spread.outcomes[0].name === away_team && spread.outcomes[1].name === home_team ? null : '+'}{spread.outcomes[0].name === home_team ? spread.outcomes[0].point : spread.outcomes[1].point} ({spread.outcomes[0].name === home_team ? spread.outcomes[0].price : spread.outcomes[1].price })</p>
+                <p style={{'text-align': 'center'}}> Away: {awayPoints > 0 ? '+' : null}{awayPoints} ({spreadAway}) | 
+                                                     Home: {homePoints > 0 ? '+': null}{homePoints} ({spreadHome})</p>
               </Card.Text>
             </Card.Body>
             <center>
