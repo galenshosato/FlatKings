@@ -8,6 +8,7 @@ function BetsCard({home_team, away_team, bookmakers, markets, outcomes}) {
         {['Dark',].map((variant) => (
           <Card
             bg={variant.toLowerCase()}
+            border="warning"
             key={variant}
             text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
             style={{ width: '30rem' }}
