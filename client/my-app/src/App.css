@@ -12,8 +12,11 @@
 
   .mb-2 {
     width: auto;
-    cursor: pointer;
     margin: 1rem;
+  }
+
+  .button1, .button2, .submitbet {
+    cursor: pointer;
   }
 
   .mb-3, .form-control {
