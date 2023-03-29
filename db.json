@@ -1,99 +1,99 @@
 {
     "games": [
-    {
-    "id": "22690e282a89e81bf8044a8b0067d565",
-    "sport_key": "basketball_nba",
-    "sport_title": "NBA",
-    "commence_time": "2023-03-27T23:00:00Z",
-    "home_team": "Detroit Pistons",
-    "away_team": "Milwaukee Bucks",
-    "bookmakers": [
-    {
-    "key": "draftkings",
-    "title": "DraftKings",
-    "last_update": "2023-03-27T16:25:12Z",
-    "markets": [
-    {
-    "key": "h2h",
-    "last_update": "2023-03-27T16:25:12Z",
-    "outcomes": [
-    {
-    "name": "Detroit Pistons",
-    "price": 1000
-    },
-    {
-    "name": "Milwaukee Bucks",
-    "price": -1800
-    }
+        {
+        "id": "22690e282a89e81bf8044a8b0067d565",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-03-27T23:00:00Z",
+        "home_team": "Detroit Pistons",
+        "away_team": "Milwaukee Bucks",
+        "bookmakers": [
+            {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2023-03-27T16:25:12Z",
+            "markets": [
+                {
+                "key": "h2h",
+                "last_update": "2023-03-27T16:25:12Z",
+                "outcomes": [
+                        {
+                        "name": "Detroit Pistons",
+                        "price": 1000
+                        },
+                        {
+                        "name": "Milwaukee Bucks",
+                        "price": -1800
+                        }
+                    ]
+                },
+            {
+            "key": "spreads",
+            "last_update": "2023-03-27T16:25:12Z",
+            "outcomes": [
+                {
+                "name": "Detroit Pistons",
+                "price": -110,
+                "point": 17
+                },
+                {
+                "name": "Milwaukee Bucks",
+                "price": -110,
+                "point": -17
+                }
+                ]
+            }
+            ]
+        }
     ]
     },
-    {
-    "key": "spreads",
-    "last_update": "2023-03-27T16:25:12Z",
-    "outcomes": [
-    {
-    "name": "Detroit Pistons",
-    "price": -110,
-    "point": 17
-    },
-    {
-    "name": "Milwaukee Bucks",
-    "price": -110,
-    "point": -17
-    }
-    ]
-    }
-    ]
-    }
-    ]
-    },
-    {
-    "id": "38076e8a60c19302820b62260471c4eb",
-    "sport_key": "basketball_nba",
-    "sport_title": "NBA",
-    "commence_time": "2023-03-27T23:10:00Z",
-    "home_team": "Indiana Pacers",
-    "away_team": "Dallas Mavericks",
-    "bookmakers": [
-    {
-    "key": "draftkings",
-    "title": "DraftKings",
-    "last_update": "2023-03-27T16:25:12Z",
-    "markets": [
-    {
-    "key": "h2h",
-    "last_update": "2023-03-27T16:25:12Z",
-    "outcomes": [
-    {
-    "name": "Dallas Mavericks",
-    "price": -115
-    },
-    {
-    "name": "Indiana Pacers",
-    "price": -105
-    }
-    ]
-    },
-    {
-    "key": "spreads",
-    "last_update": "2023-03-27T16:25:12Z",
-    "outcomes": [
-    {
-    "name": "Dallas Mavericks",
-    "price": -110,
-    "point": -1
-    },
-    {
-    "name": "Indiana Pacers",
-    "price": -110,
-    "point": 1
-    }
-    ]
-    }
-    ]
-    }
-    ]
-    },
+        {
+        "id": "38076e8a60c19302820b62260471c4eb",
+        "sport_key": "basketball_nba",
+        "sport_title": "NBA",
+        "commence_time": "2023-03-27T23:10:00Z",
+        "home_team": "Indiana Pacers",
+        "away_team": "Dallas Mavericks",
+        "bookmakers": [
+            {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2023-03-27T16:25:12Z",
+            "markets": [
+                {
+                "key": "h2h",
+                "last_update": "2023-03-27T16:25:12Z",
+                "outcomes": [
+                    {
+                    "name": "Dallas Mavericks",
+                    "price": -115
+                    },
+                    {
+                    "name": "Indiana Pacers",
+                    "price": -105
+                    }
+                ]
+                },
+                {
+                "key": "spreads",
+                "last_update": "2023-03-27T16:25:12Z",
+                "outcomes": [
+                    {
+                    "name": "Dallas Mavericks",
+                    "price": -110,
+                    "point": -1
+                    },
+                    {
+                    "name": "Indiana Pacers",
+                    "price": -110,
+                    "point": 1
+                    }
+                ]
+                }
+            ]
+            }
+        ]
+        },
     {
     "id": "8055e86f71d557471bf1d718d3bc45dd",
     "sport_key": "basketball_nba",
@@ -476,7 +476,7 @@
     "sport_title": "NBA",
     "commence_time": "2023-03-29T00:10:00Z",
     "home_team": "Oklahoma City Thunder",
-    "away_team": "Charlotte Hornets",
+    "ary_team": "Charlotte Hornets",
     "bookmakers": [
     {
     "key": "draftkings",
