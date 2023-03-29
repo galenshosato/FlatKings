@@ -9,7 +9,6 @@ metadata = MetaData(naming_convention={
 
 db = SQLAlchemy(metadata=metadata)
 
-
 class User(db.Model):
     __tablename__ = 'users'
 
@@ -24,7 +23,7 @@ class User(db.Model):
             "email": self.email,
             "password": self.password
         }
-    
+
 class Bet(db.Model):
     __tablename__= "bets"
 

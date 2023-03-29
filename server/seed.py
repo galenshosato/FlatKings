@@ -9,3 +9,4 @@ fake = faker()
 def seed_data():
     with app.app_context():
         pass
+
