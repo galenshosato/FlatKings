@@ -1,13 +1,36 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 function Header() {
     return (
-<div class="container">
-  <div class="jumbotron">
-    <h1>FlatKings</h1>      
-    <h3>The most popular betting website of Flatiron School.</h3>
-  </div>  
-</div>
+<>
+    <Navbar bg="dark" variant="dark">
+        <Container fluid>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto"
+          style={{ maxHeight: "100px" }}
+          navbarScroll>
+            <Nav.Link href="/">Today's Games</Nav.Link>
+            <Nav.Link href="/user">Your Bets</Nav.Link>
+          </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div class="container">
+    <div class="wrapper">
+    <div class="bg">FlatKings</div>
+    <div class="fg">FlatKings</div>
+        <h3 style={{'text-align': 'center'}}>
+            <em style={{color: 'white'}}>The official sports betting website of Flatiron School</em>
+        </h3>
+    </div>
+</div>  
+      </>
     )
 }
 export default Header;
+

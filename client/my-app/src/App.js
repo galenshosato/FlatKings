@@ -1,10 +1,11 @@
 import './App.css';
+import React, { Fragment } from 'react';
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
 import Header from './components/Header';
-import React from 'react';
 import UserBetList from './components/UserBetList';
 
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [bets, setBets] = useState([])
@@ -18,10 +19,13 @@ function App() {
   return (
     <div className='app'>
       <Header />
-      <BetsList
-      bets={bets}
-      setBets={setBets} />
+      <Routes>
+            <Route element={
+                <BetsList
+                bets={bets}
+                setBets={setBets}/>} path="/" />
       <UserBetList />
+      </Routes>
     </div>
 
   )
