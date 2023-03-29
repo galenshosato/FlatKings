@@ -1,0 +1,27 @@
+
+  .mb-2 {
+    width: auto;
+    cursor: pointer;
+  }
+
+  .cards {
+    column-count: 2;
+    width: 100rem;
+  }
+
+  .mb-3, .form-control {
+  padding: 0.25rem;
+  font-family: inherit;
+  font-size: 1.2em;
+  }
+
+  .jumbotron {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+
+
+  .userBetList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

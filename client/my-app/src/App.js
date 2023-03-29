@@ -1,12 +1,12 @@
 import React from 'react';
-import User from './components/UserPage';
+import UserBetList from './components/UserBetList';
+import './App.css'
 
 function App() {
   return (
-    <div>
-      <User />
+    <div className='app'>
+      <UserBetList />
     </div>
-
   )
 }
 
