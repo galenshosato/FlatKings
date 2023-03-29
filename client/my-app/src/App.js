@@ -2,6 +2,7 @@ import './App.css';
 import React, { Fragment } from 'react';
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
+import SignInForm from './components/SignInForm';
 import Header from './components/Header';
 import { Route, Routes } from "react-router-dom";
 
@@ -21,7 +22,10 @@ function App() {
             <Route element={
                 <BetsList
                 bets={bets}
-                setBets={setBets}/>} path="/" />
+                setBets={setBets}/>} exact path="/" />
+
+            <Route element={
+              <SignInForm/>} path="/signin"/>
       </Routes>
     </div>
   )

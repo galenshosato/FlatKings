@@ -1,6 +1,6 @@
 from flask import Flask, make_response, request, jsonify
 from flask_migrate import Migrate
-from models import db, User, Bet, UserBet
+from models import db, User, Bet
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
