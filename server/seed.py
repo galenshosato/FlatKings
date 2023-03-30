@@ -1,5 +1,4 @@
 from app import app
-from random import choices as rc
 from models import db, Bet, User
 
 if __name__ == '__main__':

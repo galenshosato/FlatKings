@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Stack } from "react-bootstrap";
 import UserBetCard from "./UserBetCard.js";
+import { useParams } from "react-router-dom";
 
 
 function UserBetList() {
   const [userBets, setUserBets] = useState([])
 
+  const { id } = useParams()
 
   useEffect(() => {
-    fetch(`/user/1`)
+    fetch(`/user/${id}`)
     .then(resp => resp.json())
     .then(data => setUserBets(data))
   }, [])

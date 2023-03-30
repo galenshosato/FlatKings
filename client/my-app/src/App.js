@@ -76,10 +76,10 @@ function App() {
             <Route element={
                 <BetsList
                 bets={bets}
-                setBets={setBets}/>} exact path="/" />
+                setBets={setBets} user={user}/>} exact path="/" />
                 
             <Route element={
-                <UserBetList />} path="/user" />
+                <UserBetList />} path={`/user/${user.id}`} />
 
             <Route element={
                 <SignInForm
