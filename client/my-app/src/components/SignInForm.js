@@ -1,33 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
 
-function SignupForm(){
-
-    const formik = useFormik({
-        initialValues: {
-            email: "",
-            password: "",
-        },
-        onSubmit: (values) => {
-            fetch('/user_info', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(values, null, 2)
-            })
-            // .then((res) => {
-            //     if (res.status == 200) {
-            //         pass // should be setState ** ASK BEN ABOUT REFRESH PAGE!!!!!
-            //     }
-            // })
-        }
-    
+function SignupForm({formik}){
 
 
-    })
 
-    console.log(formik)
 
 
     return (
@@ -35,11 +11,12 @@ function SignupForm(){
             <h1>Sign Up</h1>
             <form onSubmit={formik.handleSubmit} >
                 <br/>
-                <label>Email Address:</label>
+                <label >Email Address:</label>
                 <br/>
                 <input
                     id='email'
                     name='email'
+                    required
                     onChange={formik.handleChange}
                     value={formik.values.email}
                 />
@@ -49,6 +26,7 @@ function SignupForm(){
                 <input
                     id='password'
                     name='password'
+                    required
                     onChange={formik.handleChange}
                     value={formik.values.password}
                 />

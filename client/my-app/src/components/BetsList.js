@@ -2,15 +2,18 @@ import BetsCard from './BetsCard';
 
 function BetsList({ bets, setBets}){
 
-    console.log(bets)
 
     return (
-        <ul className='cards'>
-            conso
+        <div className='cards'>
             {bets.map((bet) => {
-                return <BetsCard {...bet} key={bet.id} setBets={setBets} />
+                return <BetsCard 
+                {...bet} 
+                key={bet.id} 
+                setBets={setBets} 
+                moneyline={bet.bookmakers[0].markets[0]} 
+                spread={bet.bookmakers[0].markets[1]} />
             })}
-        </ul>
+        </div>
     )
 }
 export default BetsList

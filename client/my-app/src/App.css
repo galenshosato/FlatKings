@@ -1,15 +1,22 @@
 .app {
   background-color: black;
 }
-  
-  .mb-2 {
-    width: auto;
-    cursor: pointer;
-  }
 
   .cards {
-    column-count: 2;
-    width: 100rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+    margin-top: -7rem;
+    margin-left: 5rem;
+  }
+
+  .mb-2 {
+    width: auto;
+    margin: 1rem;
+  }
+
+  .button1, .button2, .submitbet {
+    cursor: pointer;
   }
 
   .mb-3, .form-control {
@@ -35,7 +42,7 @@
     place-content: center;
     text-transform: uppercase;
     height: 35vh;
-    margin: 5rem;
+    margin: 2rem;
   }
 
   .wrapper > div {
@@ -69,3 +76,4 @@
     color: #1e2127;
     transform: scale(1);
   }
+
