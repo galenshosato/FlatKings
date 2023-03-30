@@ -2,6 +2,7 @@ import BetsCard from './BetsCard';
 
 function BetsList({ bets, setBets}){
 
+
     return (
         <div className='cards'>
             {bets.map((bet) => {

@@ -1,5 +1,11 @@
-from sqlalchemy.orm import validates
 from extensions import db
+from sqlalchemy.orm import validates
+<<<<<<< HEAD
+from extensions import db
+=======
+
+
+>>>>>>> 999d3bdc13c63c0a7cc0653587261e6d3fcd4a9d
 
 class User(db.Model):
     __tablename__ = 'users'

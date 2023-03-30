@@ -8,4 +8,10 @@ metadata = MetaData(naming_convention={
 
 
 migrate = Migrate()
+<<<<<<< HEAD
 db = SQLAlchemy(metadata=metadata)
+=======
+db = SQLAlchemy(metadata=metadata)
+bcrypt = Bcrypt()
+
+>>>>>>> 999d3bdc13c63c0a7cc0653587261e6d3fcd4a9d
