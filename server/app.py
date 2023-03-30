@@ -32,7 +32,7 @@ def user_info():
 
         return make_response(jsonify(userInfo.to_dict()), 201)
     
-@app.route('/bets', methods=['POST', 'DELETE'])
+@app.route('/bets', methods=['POST'])
 def bets_info():
 
     if request.method == 'POST':
@@ -43,7 +43,8 @@ def bets_info():
             desc = data['desc'],
             odds = data['odds'],
             wager = data['wager'],
-            success = data['success']
+            result = data['result'],
+            user_id = data['user_id']
         )
 
         db.session.add(bet)
