@@ -1,9 +1,4 @@
-// import React, { useEffect, useState } from "react";
-
 function SignupForm({formik}){
-
-
-
 
 
     return (
