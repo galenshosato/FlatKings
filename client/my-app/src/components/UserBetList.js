@@ -18,7 +18,7 @@ function UserBetList() {
           <Stack direction ='horizontal' gap={3} className='d-flex justify-content-center'>
             {userBets.map((userBet) => {
                 return ( 
-                  <UserBetCard {...userBet} key={userBet.id} />
+                  <UserBetCard {...userBet} key={userBet.id} setUserBets={setUserBets} />
                 )
             })}
          </Stack>
