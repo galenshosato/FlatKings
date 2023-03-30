@@ -77,3 +77,7 @@
     transform: scale(1);
   }
 
+.betInput, .betbutton {
+  margin: 0.3rem;
+  border-radius: 3px;
+}

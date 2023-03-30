@@ -10,7 +10,6 @@ app.json.compact = False
 
 db.init_app(app)
 migrate.init_app(app, db)
-bcrypt.init_app(app)
 
 @app.route('/')
 def home():
