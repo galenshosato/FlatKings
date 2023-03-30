@@ -42,7 +42,7 @@ def bets_info():
             desc = data['desc'],
             odds = data['odds'],
             wager = data['wager'],
-            success = data['success']
+            result = data['result']
         )
 
         db.session.add(bet)
