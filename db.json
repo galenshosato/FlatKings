@@ -476,7 +476,7 @@
     "sport_title": "NBA",
     "commence_time": "2023-03-29T00:10:00Z",
     "home_team": "Oklahoma City Thunder",
-    "ary_team": "Charlotte Hornets",
+    "away_team": "Charlotte Hornets",
     "bookmakers": [
     {
     "key": "draftkings",
