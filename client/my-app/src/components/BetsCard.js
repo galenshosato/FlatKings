@@ -30,8 +30,9 @@ function BetsCard({home_team, away_team, moneyline, spread }) {
             wager: wager,
             result: money
         }
+        console.log(newBet)
 
-    fetch("http://localhost:5555/bets", {
+    fetch("/bets", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newBet)
