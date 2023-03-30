@@ -1,3 +1,4 @@
+from extensions import db
 from sqlalchemy.orm import validates
 from extensions import db
 

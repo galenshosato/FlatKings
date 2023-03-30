@@ -3,8 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function Header() {
+function Header({userStatus}) {
+  
+
+
+  
     return (
+      
 <>
     <Navbar bg="dark" variant="dark">
         <Container fluid>
@@ -16,10 +21,12 @@ function Header() {
           navbarScroll>
             <Nav.Link href="/">Today's Games</Nav.Link>
             <Nav.Link href="/user">Your Bets</Nav.Link>
+            {!userStatus.email ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>You are logged in as: {userStatus.email}</Nav.Link>}
           </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
       <div class="container">
     <div class="wrapper">
     <div class="bg">FlatKings</div>
