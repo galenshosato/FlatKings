@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 
-function BetsCard({home_team, away_team, moneyline, spread }) {
+function BetsCard({home_team, away_team, moneyline, spread, user }) {
     const moneyAway = moneyline.outcomes[0].name === away_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
     const moneyHome = moneyline.outcomes[0].name === home_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
     const spreadAway = spread.outcomes[0].name === away_team ? spread.outcomes[0].price : spread.outcomes[1].price
@@ -28,7 +28,8 @@ function BetsCard({home_team, away_team, moneyline, spread }) {
             desc: intSelectedBet === moneyAway || intSelectedBet === moneyHome ? 'h2h' : 'spread',
             odds: intSelectedBet, 
             wager: wager,
-            result: money
+            result: money,
+            user_id: user.id
         }
         console.log(newBet)
 
@@ -51,7 +52,7 @@ function BetsCard({home_team, away_team, moneyline, spread }) {
             style={{ width: '30rem' }}
             className="mb-2"
           >
-            <Card.Header>Upcoming Game: 3/28/2023</Card.Header>
+            <Card.Header style={{'text-align': 'center'}}>Upcoming Game: 3/28/2023</Card.Header>
             <Card.Body>
               <Card.Title style={{'text-align': 'center'}}>{away_team} @ {home_team}</Card.Title>
               <p>{' '}</p>
