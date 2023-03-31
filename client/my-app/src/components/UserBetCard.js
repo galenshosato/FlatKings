@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button} from 'react-bootstrap';
 
-function UserBetCard({ team_name, description, odds, wager, result, id, setUserBets }) {
+function UserBetCard({ team_name, description, odds, wager, result, id, setUserBets, success }) {
 
   function handleDelete(id) {
     fetch(`/bet/${id}`, {
@@ -24,7 +24,7 @@ function UserBetCard({ team_name, description, odds, wager, result, id, setUserB
         <>
         {['Dark'].map((variant) => (
             <Card
-              bg={variant.toLowerCase()}
+              bg={success ? 'success' : variant.toLowerCase()}
               key={variant}
               text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
               style={{ width: '30rem' }}

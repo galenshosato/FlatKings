@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request, make_response, session as browser_session
 from extensions import *
 from models import db, User, Bet
+from scraper import find_away_team, find_home_team
 
 import os
 
@@ -90,6 +91,8 @@ def logintest():
 @app.route('/bet/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
 def bet_by_id(id):
     bet = Bet.query.filter_by(id=id).first()
+    name_array = bet.team_name.split()
+    name = name_array[-1]
 
     if request.method == 'GET':
         return make_response(jsonify(bet.to_dict()), 200)
@@ -101,15 +104,32 @@ def bet_by_id(id):
         return make_response(jsonify({"delete": "You have successfully deleted this bet"}))
     
     elif request.method == 'PATCH':
-        data = request.get_json()
+        if find_away_team(name) == 'Win':
+            bet.success = True        
+            db.session.add(bet)
+            db.session.commit()
 
-        for field in data:
-            setattr(bet, field, data[field])
+            return(jsonify(bet.to_dict()), 200)
+        elif find_away_team(name) == 'Lose':
+            bet.success = False
+            db.session.add(bet)
+            db.session.commit()
+
+            return(jsonify(bet.to_dict()), 200)
         
-        db.session.add(bet)
-        db.session.commit()
+        elif find_home_team(name) == 'Win':
+            bet.success = True        
+            db.session.add(bet)
+            db.session.commit()
 
-        return(jsonify(bet.to_dict()), 200)
+            return(jsonify(bet.to_dict()), 200)
+        
+        elif find_home_team(name) == 'Lose':
+            bet.success = False
+            db.session.add(bet)
+            db.session.commit()
+
+            return(jsonify(bet.to_dict()), 200)
 
 
     

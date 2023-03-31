@@ -44,17 +44,20 @@ function BetsCard({home_team, away_team, moneyline, spread, user }) {
     function handleSubmit(event) {
         event.preventDefault();
         const wager = event.target.elements.placebet.value;
-        const posOdds = Math.floor(wager * (intSelectedBet/100)) + wager
-        const negOdds = Math.floor(wager * (100/(-intSelectedBet))) + wager
+        const intWager = parseInt(wager, 0)
+        const posOdds = Math.floor(intWager * (intSelectedBet/100)) + intWager
+        const negOdds = Math.floor(intWager * (100/(-intSelectedBet))) + intWager
         const money = intSelectedBet > 0 ? posOdds : negOdds
         const newBet ={
             team_name: intSelectedBet === moneyAway || intSelectedBet === spreadAway ? away_team : home_team,
             desc: intSelectedBet === moneyAway || intSelectedBet === moneyHome ? 'h2h' : 'spread',
             odds: intSelectedBet, 
-            wager: wager,
+            wager: intWager,
             result: money,
             user_id: user.id
         }
+
+        console.log(newBet)
 
         
 
