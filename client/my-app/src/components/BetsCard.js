@@ -85,7 +85,7 @@ function BetsCard({home_team, away_team, moneyline, spread, user }) {
             style={{ width: '30rem' }}
             className="mb-2"
           >
-            <Card.Header style={{'text-align': 'center'}}>Upcoming Game: 3/28/2023</Card.Header>
+            <Card.Header style={{'text-align': 'center'}}>Upcoming Game: 3/31/2023</Card.Header>
             <Card.Body>
               <Card.Title style={{'text-align': 'center'}}>{away_team} @ {home_team}</Card.Title>
               <p>{' '}</p>

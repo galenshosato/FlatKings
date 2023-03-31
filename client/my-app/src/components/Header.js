@@ -15,7 +15,7 @@ function Header({userStatus}) {
         <Container fluid>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">NBA</Navbar.Brand>
           <Nav className="me-auto"
           style={{ maxHeight: "100px" }}
           navbarScroll>
