@@ -1,8 +1,6 @@
 import './App.css';
 import React from 'react';
 import { useFormik } from "formik";
-
-
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
 import SignInForm from './components/SignInForm';
@@ -17,13 +15,15 @@ function App() {
   const [user, setUser] = useState({})
   const navigate = useNavigate();
 
-    useEffect(() => {
+  useEffect(() => {
         fetch("http://localhost:3000/games")
         .then((response) => response.json())
         .then(setBets)
     }, []);
 
-    const formik = useFormik({
+
+
+  const formik = useFormik({
       initialValues: {
           email: "",
           password: "",
@@ -39,6 +39,14 @@ function App() {
           .then(() => navigate('/user'))
       }
   })
+
+  useEffect(() => {
+    fetch("/check_session").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
 
   function handleLoginSubmit(event) {
@@ -64,7 +72,7 @@ function App() {
     .then(() => navigate('/'))
   }
 
-  console.log(user)
+  
 
 
   
@@ -79,7 +87,7 @@ function App() {
                 setBets={setBets} user={user}/>} exact path="/" />
                 
             <Route element={
-                <UserBetList />} path={`/user/${user.id}`} />
+                <UserBetList />}  path='/user/:id' />
 
             <Route element={
                 <SignInForm

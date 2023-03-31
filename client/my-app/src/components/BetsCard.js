@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 
-function BetsCard({home_team, away_team, moneyline, spread }) {
+function BetsCard({home_team, away_team, moneyline, spread, user }) {
     const moneyAway = moneyline.outcomes[0].name === away_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
     const moneyHome = moneyline.outcomes[0].name === home_team ? moneyline.outcomes[0].price : moneyline.outcomes[1].price
     const spreadAway = spread.outcomes[0].name === away_team ? spread.outcomes[0].price : spread.outcomes[1].price
@@ -28,10 +28,13 @@ function BetsCard({home_team, away_team, moneyline, spread }) {
             desc: intSelectedBet === moneyAway || intSelectedBet === moneyHome ? 'h2h' : 'spread',
             odds: intSelectedBet, 
             wager: wager,
-            result: money
+            result: money,
+            user_id: user.id
         }
 
-    fetch("http://localhost:5555/bets", {
+        console.log(newBet)
+
+    fetch("/bets", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newBet)

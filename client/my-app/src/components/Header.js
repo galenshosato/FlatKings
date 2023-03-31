@@ -4,13 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 
+
 function Header({userStatus}) {
   
-  function handleLinkCLick (event) {
-    event.preventDefault();
-  };
-
-
   
     return (
       
@@ -23,9 +19,9 @@ function Header({userStatus}) {
           <Nav className="me-auto"
           style={{ maxHeight: "100px" }}
           navbarScroll>
-            <Nav.Link href="/" onClick={handleLinkCLick}>Today's Games</Nav.Link>
-            <Nav.Link href={`/user/${userStatus.id}`} onClick={handleLinkCLick}>Your Bets</Nav.Link>
-            {!userStatus.email ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>You are logged in as: {userStatus.email}</Nav.Link>}
+            <Nav.Link href="/">Today's Games</Nav.Link>
+            <Nav.Link href={`/user/${userStatus.id}`}>Your Bets</Nav.Link>
+            {!userStatus.email ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link href='/login'>You are logged in as: {userStatus.email}</Nav.Link>}
           </Nav>
           </Navbar.Collapse>
         </Container>

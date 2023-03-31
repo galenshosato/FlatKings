@@ -2,11 +2,13 @@ from flask import Flask, jsonify, render_template, request, make_response, sessi
 from extensions import *
 from models import db, User, Bet
 
+import os
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-
+app.secret_key = 'super secret key'
 
 db.init_app(app)
 migrate.init_app(app, db)
@@ -31,6 +33,15 @@ def user_info():
         db.session.commit()
 
         return make_response(jsonify(userInfo.to_dict()), 201)
+
+@app.route('/check_session')
+def get():
+    user = User.query.filter(User.id == browser_session.get('user_id')).first()
+
+    if user:
+        return jsonify(user.to_dict())
+    else:
+       return jsonify({'message': '401: Not Authorized'}), 401
     
 @app.route('/bets', methods=['POST'])
 def bets_info():
@@ -65,10 +76,9 @@ def login():
         if not user:
             return jsonify({'error': 'invalid login'}), 404
 
-        # if not user.authenticate(password):
-        #     return jsonify({'error': 'invalid login'}), 404
 
-        # browser_session['user_id'] = user.id
+        browser_session['user_id'] = user.id
+        
         return jsonify(user.to_dict()), 201
 
 @app.route('/logintest', methods=['GET'])
