@@ -18,3 +18,4 @@ function BetsList({ bets, setBets}){
 }
 export default BetsList
 
+

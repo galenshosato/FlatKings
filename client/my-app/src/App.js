@@ -36,7 +36,10 @@ function App() {
           },
           body: JSON.stringify(values, null, 2)
           })
-          .then(() => navigate('/user'))
+          .then(data => console.log(data))
+
+          .then(() => navigate('/login'))
+
       }
   })
 
@@ -61,17 +64,23 @@ function App() {
     })
     .then(resp => resp.json())
     .then(data => setUser(data))
-    .then(() => navigate('/'))
+    .then(() => navigate('/user'))
   }
 
-  console.log(user)
 
 
-  
+    //Logout
+
+    function logout(){
+      const handleClick =() =>{
+        setUser({});
+      }
+    }
+
 
   return (
     <div className='app'>
-      <Header userStatus={user} />
+      <Header userStatus={user} logoutClick ={logout} />
       <Routes>
             <Route element={
                 <BetsList
@@ -79,7 +88,7 @@ function App() {
                 setBets={setBets}/>} exact path="/" />
                 
             <Route element={
-                <UserBetList />} path="/user" />
+                <UserBetList bets={bets} />} path="/user" />
 
             <Route element={
                 <SignInForm

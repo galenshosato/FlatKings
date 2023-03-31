@@ -2,21 +2,28 @@ from flask import Flask, jsonify, render_template, request, make_response, sessi
 from extensions import *
 from models import db, User, Bet
 
+import os
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = os.environ.get('SECRET_KEY')
 app.json.compact = False
 
 
 db.init_app(app)
 migrate.init_app(app, db)
+bcrypt.init_app(app)
+
+excluded_endpoints = ['root', 'login', 'logout', 'signup']
 
 @app.route('/')
 def home():
     return ''
 
 @app.route('/user_info', methods=['POST'])
-def user_info():
+def sign_up():
 
     if request.method == 'POST':
         data = request.get_json()
@@ -66,8 +73,18 @@ def login():
         # if not user.authenticate(password):
         #     return jsonify({'error': 'invalid login'}), 404
 
-        # browser_session['user_id'] = user.id
+        browser_session['user_id'] = user.id
         return jsonify(user.to_dict()), 201
+    
+
+
+@app.route('/user/1', methods=['GET'])
+def get_users_bets():
+    user = User.query.filter(User.id == 1).first()
+
+    user_bets = [bet.to_dict() for bet in user.bets]
+
+    return make_response(jsonify(user_bets), 200)
 
 @app.route('/logintest', methods=['GET'])
 def logintest():

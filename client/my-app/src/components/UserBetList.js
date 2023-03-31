@@ -3,8 +3,11 @@ import { Stack } from "react-bootstrap";
 import UserBetCard from "./UserBetCard.js";
 
 
-function UserBetList() {
+function UserBetList({bets}) {
   const [userBets, setUserBets] = useState([])
+
+
+
 
 
   useEffect(() => {
