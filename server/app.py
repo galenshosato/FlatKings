@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = os.environ.get('SECRET_KEY')
+app.secret_key = 'BAD_SECRET_KEY'
 app.json.compact = False
 
 
@@ -76,21 +76,36 @@ def login():
         browser_session['user_id'] = user.id
         return jsonify(user.to_dict()), 201
     
+@app.route('/check_session', methods = ['GET'])
+def CheckSession():
+    
+
+    if request.method == 'GET':
+        user_id = browser_session.get('user_id')
+        user = User.query.filter(User.id == user_id).first()
+
+        if user:
+            return jsonify(user.to_dict())
+
+        if not user:
+            return jsonify({'error': 'not authorized'}), 401
+        
+@app.route('/logout', methods = ['DELETE'])
+def logging_out():
+    if request.method == 'DELETE':
+        browser_session['user_id'] = None
+        return jsonify({'message': '204: No Content'}), 204
 
 
-@app.route('/user/1', methods=['GET'])
-def get_users_bets():
-    user = User.query.filter(User.id == 1).first()
+
+@app.route('/user/<int:id>', methods=['GET'])
+def get_users_bets(id):
+    user = User.query.filter(User.id == id).first()
 
     user_bets = [bet.to_dict() for bet in user.bets]
 
     return make_response(jsonify(user_bets), 200)
 
-@app.route('/logintest', methods=['GET'])
-def logintest():
-    if request.method == 'GET':
-        users = User.query.order_by(User.id).all()
-        return make_response(jsonify(user.to_dict() for user in users),200)
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

@@ -23,6 +23,16 @@ function App() {
         .then(setBets)
     }, []);
 
+
+    useEffect(()=>{
+      fetch("/check_session").then((response) => {
+        if (response.ok) {
+          response.json().then((user) => setUser(user));
+        }
+      });
+    }, []);
+
+
     const formik = useFormik({
       initialValues: {
           email: "",
@@ -71,16 +81,15 @@ function App() {
 
     //Logout
 
-    function logout(){
-      const handleClick =() =>{
-        setUser({});
-      }
+    function handleLogOut(){
+      setUser({})
     }
 
+    
 
   return (
     <div className='app'>
-      <Header userStatus={user} logoutClick ={logout} />
+      <Header userStatus={user} onLogout ={handleLogOut} />
       <Routes>
             <Route element={
                 <BetsList
@@ -88,7 +97,7 @@ function App() {
                 setBets={setBets}/>} exact path="/" />
                 
             <Route element={
-                <UserBetList bets={bets} />} path="/user" />
+                <UserBetList bets={bets} user={user} />} path="/user" />
 
             <Route element={
                 <SignInForm
