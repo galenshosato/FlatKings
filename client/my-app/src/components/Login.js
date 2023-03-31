@@ -7,10 +7,10 @@ export default function Login({ handleSubmit }) {
         <div className="login-form d-flex justify-content-center align-items-center">
           <Form className="bootstrap-form rounded p-4 p-sm-3" onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <h1>Login</h1>
+              <h1 style={{color: 'gold'}}>Login</h1>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email:</Form.Label>
+              <Form.Label >Email:</Form.Label>
               <br/>
               <input type='text' name='email' />
               
