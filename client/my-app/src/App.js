@@ -1,8 +1,6 @@
 import './App.css';
 import React from 'react';
 import { useFormik } from "formik";
-
-
 import { useState, useEffect } from 'react'
 import BetsList from './components/BetsList';
 import SignInForm from './components/SignInForm';
@@ -17,13 +15,15 @@ function App() {
   const [user, setUser] = useState({})
   const navigate = useNavigate();
 
-    useEffect(() => {
-        fetch("http://localhost:3000/games")
+  useEffect(() => {
+        fetch("https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=e6b468f4ded18c9930ffb6dd119aef7f&regions=us&markets=h2h,spreads&oddsFormat=american&bookmakers=draftkings")
         .then((response) => response.json())
         .then(setBets)
     }, []);
 
-    const formik = useFormik({
+
+
+  const formik = useFormik({
       initialValues: {
           email: "",
           password: "",
@@ -39,6 +39,14 @@ function App() {
           .then(() => navigate('/user'))
       }
   })
+
+  useEffect(() => {
+    fetch("/check_session").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
 
   function handleLoginSubmit(event) {
@@ -64,7 +72,7 @@ function App() {
     .then(() => navigate('/'))
   }
 
-  console.log(user)
+  
 
 
   
@@ -76,10 +84,10 @@ function App() {
             <Route element={
                 <BetsList
                 bets={bets}
-                setBets={setBets}/>} exact path="/" />
+                setBets={setBets} user={user}/>} exact path="/" />
                 
             <Route element={
-                <UserBetList />} path="/user" />
+                <UserBetList />}  path='/user/:id' />
 
             <Route element={
                 <SignInForm
