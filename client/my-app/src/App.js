@@ -14,9 +14,10 @@ function App() {
   const [bets, setBets] = useState([])
   const [user, setUser] = useState({})
   const navigate = useNavigate();
+  const basicGet = //api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=__&regions=us&markets=h2h,spreads&oddsFormat=american&bookmakers=draftkings
 
   useEffect(() => {
-        fetch("https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=e6b468f4ded18c9930ffb6dd119aef7f&regions=us&markets=h2h,spreads&oddsFormat=american&bookmakers=draftkings")
+        fetch("http://localhost:3000/games")
         .then((response) => response.json())
         .then(setBets)
     }, []);
