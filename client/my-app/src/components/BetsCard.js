@@ -63,3 +63,4 @@ function BetsCard({home_team, away_team, moneyline, spread }) {
         
 }
 export default BetsCard;
+

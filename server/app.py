@@ -76,6 +76,7 @@ def login():
         browser_session['user_id'] = user.id
         return jsonify(user.to_dict()), 201
     
+
 @app.route('/check_session', methods = ['GET'])
 def CheckSession():
     
@@ -85,11 +86,13 @@ def CheckSession():
         user = User.query.filter(User.id == user_id).first()
 
         if user:
-            return jsonify(user.to_dict())
+            return jsonify(user.to_dict()), 200
 
         if not user:
             return jsonify({'error': 'not authorized'}), 401
         
+        
+
 @app.route('/logout', methods = ['DELETE'])
 def logging_out():
     if request.method == 'DELETE':
@@ -98,7 +101,7 @@ def logging_out():
 
 
 
-@app.route('/user/<int:id>', methods=['GET'])
+@app.route('/users_bets/<int:id>', methods=['GET'])
 def get_users_bets(id):
     user = User.query.filter(User.id == id).first()
 
@@ -106,6 +109,26 @@ def get_users_bets(id):
 
     return make_response(jsonify(user_bets), 200)
 
+@app.route('/user_and_their_bets/<int:id>', methods = ['GET'])
+def user_and_their_bets(id):
+    user = User.query.filter(User.id == id).first() 
+    
+
+    if user:
+        return jsonify(user.to_dict()), 200
+    else:
+        return jsonify({'error': 'User not found'}), 404
+
+@app.route('/user/bet/<int:id>', methods = ['DELETE'])
+def user_and_bet(id):
+    if request.method == 'DELETE':
+
+        bet = Bet.query.filter(Bet.id == id).first() 
+
+        db.session.delete(bet)
+        db.session.commit()
+
+        return jsonify({'deleted': True }, 200)
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

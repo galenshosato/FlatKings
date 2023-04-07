@@ -1,16 +1,16 @@
 import './App.css';
 import React from 'react';
 import { useFormik } from "formik";
-
-
 import { useState, useEffect } from 'react'
+import { Route, Routes, useNavigate } from "react-router-dom";
+
+//import child components
 import BetsList from './components/BetsList';
 import SignInForm from './components/SignInForm';
 import Header from './components/Header';
 import UserBetList from './components/UserBetList';
-
-import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from './components/Login';
+
 
 function App() {
   const [bets, setBets] = useState([])
@@ -95,7 +95,7 @@ function App() {
                 <BetsList
                 bets={bets}
                 setBets={setBets}/>} exact path="/" />
-                
+
             <Route element={
                 <UserBetList bets={bets} user={user} />} path="/user" />
 
@@ -108,7 +108,6 @@ function App() {
               <Login
                 handleSubmit={handleLoginSubmit}
               />} path="/login"/>
-            
       </Routes>
     </div>
   )

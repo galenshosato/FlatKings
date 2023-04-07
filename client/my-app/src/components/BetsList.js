@@ -1,6 +1,6 @@
 import BetsCard from './BetsCard';
 
-function BetsList({ bets, setBets}){
+function BetsList({ bets, setBets }){
 
 
     return (

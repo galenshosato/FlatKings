@@ -1,7 +1,23 @@
 import React from "react";
 import { Card, Button} from 'react-bootstrap';
 
-function UserBetCard({ team_name, description, odds, wager, result }) {
+function UserBetCard({ team_name, description, odds, id, wager, result, setUserBets }) {
+
+  function handleClick(event){
+
+    fetch(`/user/bet/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(resp=>resp.json())
+    setUserBets(prev => prev.filter(bet => {
+      return bet.id !== id
+    }))
+  }
+
+
   return (
         <>
         {['Dark'].map((variant) => (
@@ -20,7 +36,7 @@ function UserBetCard({ team_name, description, odds, wager, result }) {
                   <p style={{'textAlign': 'center'}}>Odds: {odds}</p>
                   <p style={{'textAlign': 'center'}}>Bet: ${wager} | Result: ${result}</p>
                 </Card.Text>
-                <Button as="delete" value='Delete' variant='secondary' size='sm' className="mx-auto">Refund</Button>
+                <Button onClick={handleClick} as="delete" value='Delete' variant='secondary' size='sm' className="mx-auto">Refund</Button>
               </Card.Body>
             </Card>
         ))}
@@ -29,3 +45,4 @@ function UserBetCard({ team_name, description, odds, wager, result }) {
     
 }
 export default UserBetCard
+

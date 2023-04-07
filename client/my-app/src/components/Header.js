@@ -20,14 +20,14 @@ function Header({userStatus, onLogout}) {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto"
-          style={{ maxHeight: "100px" }}
-          navbarScroll>
-            <Nav.Link href="/">Today's Games</Nav.Link>
-            <Nav.Link href="/user">Your Bets</Nav.Link>
-            {!userStatus.email ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>You are logged in as: {userStatus.email}</Nav.Link>}
-            {!userStatus.email ? null : <Nav.Link onClick={handleLogout} href="/login">Logout</Nav.Link>}
-          </Nav>
+            <Nav className="me-auto"
+            style={{ maxHeight: "100px" }}
+            navbarScroll>
+              <Nav.Link href="/">Today's Games</Nav.Link>
+              <Nav.Link href="/user">Your Bets</Nav.Link>
+              {!userStatus.email ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>You are logged in as: {userStatus.email}</Nav.Link>}
+              {!userStatus.email ? null : <Nav.Link onClick={handleLogout} href="/login">Logout</Nav.Link>}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
