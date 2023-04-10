@@ -53,7 +53,6 @@ function App() {
       }
   })
 
-
   function handleLoginSubmit(event) {
     // Prevent page refresh
     event.preventDefault()
@@ -85,7 +84,7 @@ function App() {
       setUser({})
     }
 
-    
+
 
   return (
     <div className='app'>
